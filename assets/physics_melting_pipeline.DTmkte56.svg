@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="910" viewBox="0 0 1340 910">
+<rect width="1340" height="910" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">basalt_evolution!(M, T, P, Vr, grid, dt, cfg, mat)   physics/basalt_evolution.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">per marker, every step with cfg.trackBasalt = true: temperature, depth and depletion C_dep in; depletion, basalt and the heat tendency H_magma out</text>
+<text x="878.0" y="92" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">fertile cell</text>
+<text x="878.0" y="110" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">150 km, 2000 K, C_dep 0.00</text>
+<text x="1103.0" y="92" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">depleted cell</text>
+<text x="1103.0" y="110" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">150 km, 2000 K, C_dep 0.15</text>
+<rect x="30" y="128" width="820" height="78" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="150" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Marker temperature and pressure</text>
+<text x="42" y="174" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T_m = bilinear(T_grid),   P = mantle_pressure(z, cfg)</text>
+<text x="42" y="194" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">T_m is the real temperature (×exp(αgz/c_p) only with meltTemperatureIsPotential); P from the ALA reference density</text>
+<rect x="874.0" y="138" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="163.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">z 150 km, T 2000 K</text>
+<text x="882.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">P 4.45 GPa</text>
+<rect x="1099.0" y="138" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="163.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">z 150 km, T 2000 K</text>
+<text x="1107.0" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">P 4.45 GPa</text>
+<line x1="440.0" y1="206" x2="440.0" y2="220" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="222" width="820" height="78" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="244" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Solidus, raised by depletion</text>
+<text x="42" y="268" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T_sol = 1393.81 + 132.9 P̂ − 5.1 P̂² + 15 max(P − 13.03, 0) + ΔT_dep min(C_dep/F_max, 1)</text>
+<text x="42" y="288" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">P in GPa, P̂ = min(P, 13.03);  ΔT_dep = 150 K (depletionSolidusRise), F_max = 0.3 (fertileFraction)</text>
+<rect x="874.0" y="232" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="257.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">1885 K + 0 K</text>
+<text x="882.0" y="275.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">T_sol = 1885 K</text>
+<rect x="1099.0" y="232" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="257.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">1885 K + 75 K</text>
+<text x="1107.0" y="275.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">T_sol = 1960 K</text>
+<line x1="440.0" y1="300" x2="440.0" y2="314" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="316" width="820" height="78" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="338" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">3  Melt fraction, capped by fertility</text>
+<text x="42" y="362" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">F = min( 0.001 · (T − T_sol),  F_max − C_dep )</text>
+<text x="42" y="382" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">0.1 % melt per kelvin above the solidus; only the fusible fraction of the parcel can melt</text>
+<rect x="874.0" y="326" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">0.001 · 115 K = 0.115</text>
+<text x="882.0" y="369.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">cap 0.30 → F = 0.115</text>
+<rect x="1099.0" y="326" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">0.001 · 40 K = 0.040</text>
+<text x="1107.0" y="369.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">cap 0.15 → F = 0.040</text>
+<line x1="440.0" y1="394" x2="440.0" y2="408" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="410" width="820" height="78" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="432" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">4  Extraction: depth gate and rate</text>
+<text x="42" y="456" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">if F &gt; 0.02 and z &lt; z_ext:   ΔF = (F − 0.02) · (1 − e^(−Δt/τ))</text>
+<text x="42" y="476" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">retained porosity 0.02, z_ext = 330 km, τ = 1.0×10<tspan baseline-shift="super" font-size="10">6</tspan> yr; deeper melt stays in place</text>
+<rect x="874.0" y="420" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="445.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δt = 20 kyr: 1 − e^(−Δt/τ) = 0.0198</text>
+<text x="882.0" y="463.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">ΔF = 1.9×10<tspan baseline-shift="super" font-size="10">-3</tspan></text>
+<rect x="1099.0" y="420" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="445.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δt = 20 kyr: 1 − e^(−Δt/τ) = 0.0198</text>
+<text x="1107.0" y="463.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">ΔF = 4.0×10<tspan baseline-shift="super" font-size="10">-4</tspan></text>
+<line x1="440.0" y1="488" x2="440.0" y2="502" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="504" width="820" height="78" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="526" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">5  Residue: depletion and heat production</text>
+<text x="42" y="550" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">C_dep ← C_dep + ΔF,      hpe ← hpe · (1 − ΔF)</text>
+<text x="42" y="570" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">with radioHeatPartitionD = 0 (default); D &gt; 0 removes ΔF / (D + F(1 − D)) of hpe instead</text>
+<rect x="874.0" y="514" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="539.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">C_dep 0.0000 → 0.0019</text>
+<text x="882.0" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">hpe 1 → 0.99811</text>
+<rect x="1099.0" y="514" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="539.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">C_dep 0.1500 → 0.1504</text>
+<text x="1107.0" y="557.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">hpe 1 → 0.99960</text>
+<line x1="440.0" y1="582" x2="440.0" y2="596" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="598" width="820" height="78" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="620" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">6  Eruption versus intrusion</text>
+<text x="42" y="644" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">a = w_m · ΔF,   a_er = 0.2 a,   a_in = a − a_er</text>
+<text x="42" y="664" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">w_m the marker's persistent weight (measure r² dr dθ), summed per column; here the 9 markers of the source cell</text>
+<rect x="874.0" y="608" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="633.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">a_er = 6.6×10<tspan baseline-shift="super" font-size="10">3</tspan> km³</text>
+<text x="882.0" y="651.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">a_in = 2.7×10<tspan baseline-shift="super" font-size="10">4</tspan> km³</text>
+<rect x="1099.0" y="608" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="633.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">a_er = 1.4×10<tspan baseline-shift="super" font-size="10">3</tspan> km³</text>
+<text x="1107.0" y="651.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">a_in = 5.7×10<tspan baseline-shift="super" font-size="10">3</tspan> km³</text>
+<line x1="440.0" y1="676" x2="440.0" y2="690" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="692" width="820" height="78" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="714" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">7  Deposition as basalt</text>
+<text x="42" y="738" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δb = a_er / Σ w (top populated cell),   Δb = a_in / Σ w (band 60–120 km)</text>
+<text x="42" y="758" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">uniform over the receivers; overflow above b = 1 goes to the next cell down (eruption) or nearest the band (intrusion), then a backlog</text>
+<rect x="874.0" y="702" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="727.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">top cell  Δb = +3.6×10<tspan baseline-shift="super" font-size="10">-4</tspan></text>
+<text x="882.0" y="745.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">band  Δb = +7.4×10<tspan baseline-shift="super" font-size="10">-4</tspan></text>
+<rect x="1099.0" y="702" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="727.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">top cell  Δb = +7.8×10<tspan baseline-shift="super" font-size="10">-5</tspan></text>
+<text x="1107.0" y="745.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">band  Δb = +1.6×10<tspan baseline-shift="super" font-size="10">-4</tspan></text>
+<line x1="440.0" y1="770" x2="440.0" y2="784" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="786" width="820" height="78" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="808" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">8  Latent heat and heat pipe (useHeatPipe)</text>
+<text x="42" y="832" font-family="Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">E_src = −ρ0 [ L a + c_p (T_src − T_surf) a_er + c_p (T_src − T̄_band) a_in ]</text>
+<text x="42" y="852" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">T_src the source cell's grid T; band cell c gains ρ0 [c_p (T_src − T_c) + L] a_in W_c/W_band;  H_magma = E/(ρ0 c_p A_cell Δt), L = 4.0×10<tspan baseline-shift="super" font-size="10">5</tspan> J/kg</text>
+<rect x="874.0" y="796" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="882.0" y="821.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">source cell -2.20 K</text>
+<text x="882.0" y="839.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">band cells +0.79 K</text>
+<rect x="1099.0" y="796" width="213.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1107.0" y="821.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">source cell -0.47 K</text>
+<text x="1107.0" y="839.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">band cells +0.17 K</text>
+</svg>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="880" viewBox="0 0 1340 880">
+<rect width="1340" height="880" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">evolve_grain_size!(M, ETA, strainII, grid, dt, cfg, mat)   physics/evolve_grain_size.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">per marker, once per step after the Stokes solve; switched on by cfg.evolveGrainSize = true (off by default)</text>
+<text x="858.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">shear-zone marker</text>
+<text x="858.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">1300 K, 100 km, ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-12</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<text x="1093.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">quiet mantle marker</text>
+<text x="1093.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">1600 K, 200 km, ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="30" y="120" width="790" height="74" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">1  Inputs at the marker</text>
+<text x="42" y="164" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η, ε̇_II bilinear from the grid;  T = max(T_marker, 300 K);  z = R_surf − r</text>
+<text x="42" y="184" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">the viscosity and strain rate of the step, after the Stokes solve</text>
+<rect x="854.0" y="130" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η 1.5×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s</text>
+<text x="862.0" y="172" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">T 1300 K</text>
+<rect x="1089.0" y="130" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="152" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η 5.3×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+<text x="1097.0" y="172" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">T 1600 K</text>
+<line x1="425.0" y1="194" x2="425.0" y2="208" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="210" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="231" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">2  Growth (Arrhenius)</text>
+<text x="42" y="254" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ḋ_grow = k_g exp(−E_g/RT) / d^(p−1),   E_g = 200 + 0.075 min(z_km, 2000) kJ/mol</text>
+<text x="42" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">k_g = 1.0×10<tspan baseline-shift="super" font-size="10">-10</tspan> m<tspan baseline-shift="super" font-size="10">2</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan>, p = 2; mat.grain_E_g is not read</text>
+<rect x="854.0" y="220" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="242" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">E_g 207.5 kJ/mol</text>
+<text x="862.0" y="262" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ḋ_grow 4.6×10<tspan baseline-shift="super" font-size="10">-16</tspan> m/s</text>
+<rect x="1089.0" y="220" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="242" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">E_g 215.0 kJ/mol</text>
+<text x="1097.0" y="262" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ḋ_grow 9.6×10<tspan baseline-shift="super" font-size="10">-15</tspan> m/s</text>
+<line x1="425.0" y1="284" x2="425.0" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="321" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">3  Reduction (wattmeter)</text>
+<text x="42" y="344" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Φ = 2η ε̇_II²,   σ = max(2η ε̇_II, 1 kPa),   ḋ_red = C_W Φ / σ</text>
+<text x="42" y="364" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">C_W = 1.0×10<tspan baseline-shift="super" font-size="10">-3</tspan>; above 1 kPa Φ/σ = ε̇_II, so η cancels and ḋ_red = C_W ε̇_II</text>
+<rect x="854.0" y="310" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="332" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">σ 300.0 MPa</text>
+<text x="862.0" y="352" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ḋ_red 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan> m/s</text>
+<rect x="1089.0" y="310" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="332" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">σ 10.7 MPa</text>
+<text x="1097.0" y="352" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ḋ_red 1.0×10<tspan baseline-shift="super" font-size="10">-18</tspan> m/s</text>
+<line x1="425.0" y1="374" x2="425.0" y2="388" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="390" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">4  Semi-implicit step</text>
+<text x="42" y="434" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">d' = ( d + Δt ḋ_grow ) / ( 1 + Δt ḋ_red / d )</text>
+<text x="42" y="454" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">growth explicit at the old size, reduction implicit; here d = 1 mm, Δt = 1.0×10<tspan baseline-shift="super" font-size="10">11</tspan> s</text>
+<rect x="854.0" y="400" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="422" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">0.951 mm</text>
+<text x="862.0" y="442" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">shrinks</text>
+<rect x="1089.0" y="400" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="422" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1.956 mm</text>
+<text x="1097.0" y="442" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">grows</text>
+<line x1="425.0" y1="464" x2="425.0" y2="478" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="480" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="501" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">5  Piezometric floor (cfg.useGBS = true only)</text>
+<text x="42" y="524" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">d' = max( d', clamp(A_pz σ^(−q_pz), 1 µm, 10 cm) )</text>
+<text x="42" y="544" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">A_pz = 1.0×10<tspan baseline-shift="super" font-size="10">-2</tspan>, q_pz = 1.5, σ in Pa; off by default</text>
+<rect x="854.0" y="490" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="512" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">floor 1.00 µm</text>
+<text x="862.0" y="532" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">inactive</text>
+<rect x="1089.0" y="490" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="512" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">floor 1.00 µm</text>
+<text x="1097.0" y="532" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">inactive</text>
+<line x1="425.0" y1="554" x2="425.0" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="570" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="591" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">6  Bounds</text>
+<text x="42" y="614" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">d = clamp(d', d_min, d_max)        → written to the marker, M.d</text>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">d_min = 1.00 µm, d_max = 10 cm; steady size d_ss = [k_g e^(−E_g/RT) / (C_W ε̇_II)]^(1/(p−1))</text>
+<rect x="854.0" y="580" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="602" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">0.951 mm</text>
+<text x="862.0" y="622" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">steady d_ss 0.459 mm</text>
+<rect x="1089.0" y="580" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="602" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">1.956 mm</text>
+<text x="1097.0" y="622" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">steady d_ss = d_max (10 cm)</text>
+<line x1="425.0" y1="644" x2="425.0" y2="658" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="660" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="681" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">7  Grain size in diffusion creep</text>
+<text x="42" y="704" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">cell d = weighted marker mean (markers_to_grid);   η_diff ∝ (d/d_ref)^m</text>
+<text x="42" y="724" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">d_ref = 1 mm, m = 3; GBS uses (d/d_ref)^(m_g/n_g); dislocation creep and yield do not see d</text>
+<rect x="854.0" y="670" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="692" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">d/d_ref 0.951</text>
+<text x="862.0" y="712" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">η_diff × 0.860</text>
+<rect x="1089.0" y="670" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="692" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">d/d_ref 1.956</text>
+<text x="1097.0" y="712" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">η_diff × 7.488</text>
+<line x1="425.0" y1="734" x2="425.0" y2="748" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="750" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="771" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">8  Composite viscosity at the new size</text>
+<text x="42" y="794" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η = clamp( min( (1/η_diff + 1/η_disl)⁻¹, η_y ), η_min, η_max )</text>
+<text x="42" y="814" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">composite_rheology, next step; 1/η_GBS and 1/η_P join the sum with cfg.useGBS, cfg.usePeierlsCreep (off here)</text>
+<rect x="854.0" y="760" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="782" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">1.5×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s  (was 1.5×10<tspan baseline-shift="super" font-size="10">20</tspan>)</text>
+<text x="862.0" y="802" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">yield limits it</text>
+<rect x="1089.0" y="760" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="782" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">7.0×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s  (was 5.3×10<tspan baseline-shift="super" font-size="10">21</tspan>)</text>
+<text x="1097.0" y="802" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">dislocation creep dominates</text>
+</svg>

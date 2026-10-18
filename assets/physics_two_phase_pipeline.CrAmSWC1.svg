@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1122" viewBox="0 0 1480 1122">
+<rect width="1480" height="1122" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">one time step with cfg.twoPhaseFlow = true   physics/two_phase.jl, solvers/two_phase_assembly.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">melting and freezing on markers and cells, then the coupled solve for solid velocity, fluid and compaction pressure, then the porosity step</text>
+<text x="888.0" y="96" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">melting cell</text>
+<text x="888.0" y="114" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">138 km, fertile, 10<tspan baseline-shift="super" font-size="10">19</tspan> Pa s</text>
+<text x="1178.0" y="96" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">freezing cell</text>
+<text x="1178.0" y="114" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">107 km, 1.5 % melt, 10<tspan baseline-shift="super" font-size="10">23</tspan> Pa s</text>
+<rect x="30" y="132" width="830" height="80" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="154" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Melting to equilibrium (markers, z &lt; 330 km)</text>
+<text x="42" y="178" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ΔF = (T − T_sol(P, C_dep)) / (ΔT_dep/F_max + L/c_p),   capped at F_max − C_dep</text>
+<text x="42" y="199" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">the melt that leaves the parcel on its depletion-raised solidus after paying its latent heat; ΔT_dep/F_max = 500 K, L/c_p = 320 K</text>
+<rect x="884.0" y="142" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="168.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T 1867 K, T_sol 1847 K</text>
+<text x="892.0" y="186.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">ΔF = 0.0242</text>
+<rect x="1174.0" y="142" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="168.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T 1758 K, T_sol 1761 K</text>
+<text x="1182.0" y="186.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">below solidus: no melting</text>
+<line x1="445.0" y1="212" x2="445.0" y2="226" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="228" width="830" height="80" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="250" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Freezing to equilibrium (cells that did not melt)</text>
+<text x="42" y="274" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δφ_f = min( φ,  c_p (T_sol − T) / L )</text>
+<text x="42" y="295" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">20 % of the frozen volume erupts to the top populated cell of the column, the rest becomes basalt in place</text>
+<rect x="884.0" y="238" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="264.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">melted this call:</text>
+<text x="892.0" y="282.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">freezing skipped</text>
+<rect x="1174.0" y="238" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="264.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δφ_f = min(0.015, 0.00937)</text>
+<text x="1182.0" y="282.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">Δφ_f = 0.938 %</text>
+<line x1="445.0" y1="308" x2="445.0" y2="322" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="324" width="830" height="80" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="346" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">3  Porosity and latent heat</text>
+<text x="42" y="370" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">φ += Σ_m w_m ΔF_m (1 − φ) / V,   ΔT = [−L a_melt + L a_in − c_p (T − T_surf) a_er] / (c_p A)</text>
+<text x="42" y="391" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">V = r_C² Δr Δθ (the transport measure), A the exact cell measure; returned as H_magma through the heat-pipe channel</text>
+<rect x="884.0" y="334" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="360.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">φ 0 → 2.417 %</text>
+<text x="892.0" y="378.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">ΔT -7.74 K</text>
+<rect x="1174.0" y="334" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="360.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">φ 1.500 % → 0.562 %</text>
+<text x="1182.0" y="378.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">ΔT +0.49 K;  Δb 7.5×10<tspan baseline-shift="super" font-size="10">-3</tspan>, top 1.8×10<tspan baseline-shift="super" font-size="10">-3</tspan></text>
+<line x1="445.0" y1="404" x2="445.0" y2="418" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="420" width="830" height="80" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="442" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">4  Melt weakening and bulk viscosity</text>
+<text x="42" y="466" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η = clamp(η_s exp(−α_φ φ), η_min, η_max),     ζ = ζ_0 η φ^(−m_ζ)</text>
+<text x="42" y="487" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">α_φ = 27.0, ζ_0 = 1.0, m_ζ = 1.0; η_s prescribed here (10<tspan baseline-shift="super" font-size="10">19</tspan> plume head, 10<tspan baseline-shift="super" font-size="10">23</tspan> lid)</text>
+<rect x="884.0" y="430" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="456.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_s 1.0×10<tspan baseline-shift="super" font-size="10">19</tspan> → η 5.2×10<tspan baseline-shift="super" font-size="10">18</tspan> Pa s</text>
+<text x="892.0" y="474.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">ζ = 2.2×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s</text>
+<rect x="1174.0" y="430" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="456.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_s 1.0×10<tspan baseline-shift="super" font-size="10">23</tspan> → η 8.6×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<text x="1182.0" y="474.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">ζ = 1.5×10<tspan baseline-shift="super" font-size="10">25</tspan> Pa s</text>
+<line x1="445.0" y1="500" x2="445.0" y2="514" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="516" width="830" height="80" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="538" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">5  Permeability and compaction length</text>
+<text x="42" y="562" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">K_D = k_0 φ^n / μ,     δ = sqrt( K_D (ζ + 4η/3) )</text>
+<text x="42" y="583" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">k_0 = 1.0×10<tspan baseline-shift="super" font-size="10">-9</tspan> m², n = 3.0, μ = 1.0 Pa s;  Δr = 30.6 km: δ &lt; Δr means compaction is not resolved</text>
+<rect x="884.0" y="526" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="552.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">K_D = 1.4×10<tspan baseline-shift="super" font-size="10">-14</tspan> m²/(Pa s)</text>
+<text x="892.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">δ = 1.77 km = 0.06 Δr</text>
+<rect x="1174.0" y="526" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="552.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">K_D = 1.8×10<tspan baseline-shift="super" font-size="10">-16</tspan> m²/(Pa s)</text>
+<text x="1182.0" y="570.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">δ = 52.3 km = 1.71 Δr</text>
+<line x1="445.0" y1="596" x2="445.0" y2="610" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="612" width="830" height="80" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">6  Segregation density</text>
+<text x="42" y="658" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δρ_seg = Δρ + ρ_0 α (T − ⟨T⟩_θ) + ⟨δρ_phase + δρ_pile⟩_θ</text>
+<text x="42" y="679" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">Δρ = 500 kg/m³; restores the radial mean the solid buoyancy removed (zero here); melt buoyancy φ Δρ g joins the solid buoyancy</text>
+<rect x="884.0" y="622" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T − ⟨T⟩ = 0 K</text>
+<text x="892.0" y="666.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">Δρ_seg = 500.0 kg/m³</text>
+<rect x="1174.0" y="622" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="648.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T − ⟨T⟩ = 407 K</text>
+<text x="1182.0" y="666.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">Δρ_seg = 540.3 kg/m³</text>
+<line x1="445.0" y1="692" x2="445.0" y2="706" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="708" width="830" height="80" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="730" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">7  Stokes–Darcy–compaction solve (solve_stokes_darcy!)</text>
+<text x="42" y="754" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">div τ − ∇p̃ − ∇p_c + b = 0,   D v_s + D q = 0,   D v_s + p_c/ζ = 0,   q = −K_D (∇p̃ − Δρ_seg g e_r)</text>
+<text x="42" y="775" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">one direct MUMPS solve + one refinement step, donor directions refreshed; total-volume residual 3.5e-16 of max |D v_s|</text>
+<rect x="884.0" y="718" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="744.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">p_c 2.0×10<tspan baseline-shift="super" font-size="10">5</tspan> Pa,  K_D Δρ_seg g 0.198 cm/yr</text>
+<text x="892.0" y="762.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">q_r(top face) = 0.0871 cm/yr</text>
+<rect x="1174.0" y="718" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="744.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">p_c 1.0×10<tspan baseline-shift="super" font-size="10">8</tspan> Pa,  K_D Δρ_seg g 0.00259 cm/yr</text>
+<text x="1182.0" y="762.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">q_r(top face) = 0.000642 cm/yr</text>
+<line x1="445.0" y1="788" x2="445.0" y2="802" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="804" width="830" height="80" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="826" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">8  Time-step limit (two_phase_dt)</text>
+<text x="42" y="850" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δt ≤ C_φ Δx / (|v_s| + |q|/φ_face),   Δt ≤ C_φ Δx/|q|,   Δt ≤ 0.5 φ / ((1 − φ) |D v_s|)</text>
+<text x="42" y="871" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">C_φ = 0.5, over the faces and cells carrying melt; the step taken is min(20 kyr, 419 kyr) = 20 kyr</text>
+<rect x="884.0" y="814" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="840.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">melt speed 3.66 cm/yr</text>
+<text x="892.0" y="858.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">limit 419 kyr</text>
+<rect x="1174.0" y="814" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="840.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">melt speed 0.121 cm/yr</text>
+<text x="1182.0" y="858.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">limit 12649 kyr</text>
+<line x1="445.0" y1="884" x2="445.0" y2="898" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="900" width="830" height="80" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="922" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">9  Porosity transport, Heun (update_porosity!)</text>
+<text x="42" y="946" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">φ* = φ + Δt R(φ, v_s),   φ ← φ + (Δt/2) [R(φ, v_s) + R(φ*, v_s*)],   R = −[div(φ v_s)]_TVD + D v_s</text>
+<text x="42" y="967" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">v_s* from a second solve at φ*; van Leer fluxes, the solver's own divergence; Σ V φ changes by -1.2e-16, no cell below zero</text>
+<rect x="884.0" y="910" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">φ 2.417 % → 2.388 %</text>
+<text x="892.0" y="954.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">cell above: φ = 0.028 %</text>
+<rect x="1174.0" y="910" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="936.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">φ 0.562 % → 0.562 %</text>
+<text x="1182.0" y="954.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">cell above: φ = 0.000 %</text>
+<line x1="445.0" y1="980" x2="445.0" y2="994" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="996" width="830" height="80" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="1018" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">10  Heat carried by the melt (darcy_heat_source)</text>
+<text x="42" y="1042" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">H = −ρ_0 c_p q · ∇T</text>
+<text x="42" y="1063" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">advective form on the Darcy face fluxes, beside H_magma; the cell above the melting cell is the lid base, 518 K colder</text>
+<rect x="884.0" y="1006" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="892.0" y="1032.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">cell 4.5×10<tspan baseline-shift="super" font-size="10">-8</tspan> W/m³</text>
+<text x="892.0" y="1050.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">cell above 1.9×10<tspan baseline-shift="super" font-size="10">-6</tspan> W/m³</text>
+<rect x="1174.0" y="1006" width="278.0" height="60" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1182.0" y="1032.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">cell 2.5×10<tspan baseline-shift="super" font-size="10">-9</tspan> W/m³</text>
+<text x="1182.0" y="1050.0" font-family="Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">cell above 1.3×10<tspan baseline-shift="super" font-size="10">-8</tspan> W/m³</text>
+</svg>

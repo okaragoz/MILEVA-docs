@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="766" viewBox="0 0 900 766" font-family="Helvetica, Arial, sans-serif">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker>
+  <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b2402f"/></marker>
+</defs>
+<rect width="900" height="766" fill="white"/>
+<text x="450.0" y="30" font-size="17" fill="#1f3b5c" text-anchor="middle" font-weight="bold">include/mileva.jl</text>
+<text x="450.0" y="52" font-size="12.5" fill="#555" text-anchor="middle" font-weight="normal" font-style="italic">files are included into Main in this order; each may use only what lies above it</text>
+<rect x="150" y="78" width="600" height="40" rx="6" fill="#6666661f" stroke="#666666" stroke-width="1.5"/>
+<text x="164" y="103.5" font-size="14.5" fill="#666666" text-anchor="start" font-weight="bold">config</text>
+<text x="282" y="103.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">SimConfig, MaterialProperties, TemperatureConditions, validate!</text>
+<rect x="150" y="126" width="600" height="40" rx="6" fill="#6666661f" stroke="#666666" stroke-width="1.5"/>
+<text x="164" y="151.5" font-size="14.5" fill="#666666" text-anchor="start" font-weight="bold">geometry</text>
+<text x="282" y="151.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">geometry_exponent (m), cell_measure, big_output_dir</text>
+<rect x="150" y="174" width="600" height="40" rx="6" fill="#28619e1f" stroke="#28619e" stroke-width="1.5"/>
+<text x="164" y="199.5" font-size="14.5" fill="#28619e" text-anchor="start" font-weight="bold">grid</text>
+<text x="282" y="199.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">setup_grid, Grid2D / Grid3D, yy_yin_to_yang</text>
+<rect x="150" y="222" width="600" height="40" rx="6" fill="#28619e1f" stroke="#28619e" stroke-width="1.5"/>
+<text x="164" y="247.5" font-size="14.5" fill="#28619e" text-anchor="start" font-weight="bold">basic utils</text>
+<text x="282" y="247.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">smooth2d, compute_timestep, interp_velocity</text>
+<rect x="150" y="270" width="600" height="40" rx="6" fill="#28619e1f" stroke="#28619e" stroke-width="1.5"/>
+<text x="164" y="295.5" font-size="14.5" fill="#28619e" text-anchor="start" font-weight="bold">markers</text>
+<text x="282" y="295.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">Markers, init_markers, advect_markers!, markers_to_grid, reseed_markers!</text>
+<rect x="150" y="318" width="600" height="40" rx="6" fill="#3a8a5c1f" stroke="#3a8a5c" stroke-width="1.5"/>
+<text x="164" y="343.5" font-size="14.5" fill="#3a8a5c" text-anchor="start" font-weight="bold">diagnostics</text>
+<text x="282" y="343.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">compute_strain_rate, compute_diagnostics, diagnostics CSV</text>
+<rect x="150" y="366" width="600" height="40" rx="6" fill="#c8691c1f" stroke="#c8691c" stroke-width="1.5"/>
+<text x="164" y="391.5" font-size="14.5" fill="#c8691c" text-anchor="start" font-weight="bold">physics</text>
+<text x="282" y="391.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">viscosity, buoyancy, melting, CMB heat flux, free surface, VEP</text>
+<rect x="150" y="414" width="600" height="40" rx="6" fill="#6a4c9c1f" stroke="#6a4c9c" stroke-width="1.5"/>
+<text x="164" y="439.5" font-size="14.5" fill="#6a4c9c" text-anchor="start" font-weight="bold">solvers</text>
+<text x="282" y="439.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">assemble_stokes(_3d), MUMPS, multigrid_stokes, diffuse_temperature</text>
+<rect x="150" y="462" width="600" height="40" rx="6" fill="#6a4c9c1f" stroke="#6a4c9c" stroke-width="1.5"/>
+<text x="164" y="487.5" font-size="14.5" fill="#6a4c9c" text-anchor="start" font-weight="bold">parallel</text>
+<text x="282" y="487.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">mpi_init!, 2-rank Yin / Yang Schwarz solve</text>
+<rect x="150" y="510" width="600" height="40" rx="6" fill="#6666661f" stroke="#666666" stroke-width="1.5"/>
+<text x="164" y="535.5" font-size="14.5" fill="#666666" text-anchor="start" font-weight="bold">I/O</text>
+<text x="282" y="535.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">save_vtu, save_checkpoint, load_checkpoint, write_pvd_file</text>
+<rect x="150" y="558" width="600" height="40" rx="6" fill="#6666661f" stroke="#666666" stroke-width="1.5"/>
+<text x="164" y="583.5" font-size="14.5" fill="#666666" text-anchor="start" font-weight="bold">visualization</text>
+<text x="282" y="583.5" font-size="12.5" fill="#222" text-anchor="start" font-weight="normal">plot_panels (needs Plots loaded first)</text>
+<line x1="120" y1="80" x2="120" y2="598.0" stroke="#444" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="104" y="339.0" font-size="13" fill="#444" text-anchor="middle" transform="rotate(-90 104 339.0)">include order</text>
+<rect x="150" y="620.0" width="600" height="46" rx="8" fill="#28619e1f" stroke="#28619e" stroke-width="1.6"/>
+<text x="450.0" y="648.0" text-anchor="middle" font-size="14" font-weight="bold" fill="#28619e">main_SphCon.jl  :  the time loop main_SphCon(cfg, mat, temp)</text>
+<line x1="450.0" y1="600.0" x2="450.0" y2="618.0" stroke="#444" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="150" y="696.0" width="290" height="46" rx="8" fill="#6666661f" stroke="#666666" stroke-width="1.6"/>
+<text x="295.0" y="724.0" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#666666">run script / benchmark / example</text>
+<rect x="460" y="696.0" width="290" height="46" rx="8" fill="#6666661f" stroke="#666666" stroke-width="1.6"/>
+<text x="605.0" y="724.0" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#666666">tests/run_tests.jl (same graph)</text>
+<line x1="295" y1="694.0" x2="295" y2="668.0" stroke="#444" stroke-width="1.8" marker-end="url(#arr)"/>
+<line x1="605" y1="694.0" x2="605" y2="668.0" stroke="#444" stroke-width="1.8" marker-end="url(#arr)"/>
+</svg>

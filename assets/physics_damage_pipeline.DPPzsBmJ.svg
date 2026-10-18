@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="790" viewBox="0 0 1340 790">
+<rect width="1340" height="790" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">evolve_damage!(D, ε̇_II, Δt, cfg);  apply_damage_to_viscosity!(η, D, cfg)   physics/damage.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">inputs per cell: damage D from the last step, strain-rate invariant ε̇_II, time step Δt, viscosity η from the rheology</text>
+<text x="858.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">shear-zone cell</text>
+<text x="858.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan>, D 0.30, η 1.0×10<tspan baseline-shift="super" font-size="10">23</tspan></text>
+<text x="1093.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">quiet cell</text>
+<text x="1093.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-18</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan>, D 0.60, η 1.0×10<tspan baseline-shift="super" font-size="10">22</tspan></text>
+<rect x="30" y="120" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Excess strain rate</text>
+<text x="42" y="164" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δε̇ = max(ε̇_II − ε̇_thr, 0)</text>
+<text x="42" y="184" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ε̇_thr = 1.0×10<tspan baseline-shift="super" font-size="10">-17</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan> (cfg.damage_strain_rate_threshold); ε̇_II is the previous step's</text>
+<rect x="854.0" y="134" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">9.9×10<tspan baseline-shift="super" font-size="10">-16</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="1089.0" y="134" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">0 s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<line x1="425.0" y1="194" x2="425.0" y2="208" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="210" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="231" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Accumulation (source)</text>
+<text x="42" y="254" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">s = k_acc · Δε̇ · (1 − D)</text>
+<text x="42" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">k_acc = 1.0×10<tspan baseline-shift="super" font-size="10">14</tspan> per unit strain (cfg.damage_acc_rate); (1 − D) saturates it at D = 1</text>
+<rect x="854.0" y="224" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">6.9×10<tspan baseline-shift="super" font-size="10">-2</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="1089.0" y="224" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">0 s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<line x1="425.0" y1="284" x2="425.0" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="321" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">3  Healing (sink)</text>
+<text x="42" y="344" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h = D / τ_heal</text>
+<text x="42" y="364" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">τ_heal = 3.15×10<tspan baseline-shift="super" font-size="10">15</tspan> s, about 100 Myr (cfg.damage_heal_time); acts in every cell</text>
+<rect x="854.0" y="314" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">9.5×10<tspan baseline-shift="super" font-size="10">-17</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="1089.0" y="314" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">1.9×10<tspan baseline-shift="super" font-size="10">-16</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<line x1="425.0" y1="374" x2="425.0" y2="388" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="390" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">4  Explicit Euler step</text>
+<text x="42" y="434" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D* = D + Δt · (s − h)</text>
+<text x="42" y="454" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">one step per time step; Δt = 50 kyr here (1×10<tspan baseline-shift="super" font-size="10">10</tspan> s on a step whose dt is still 0)</text>
+<rect x="854.0" y="404" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D* = 1.1×10<tspan baseline-shift="super" font-size="10">11</tspan></text>
+<rect x="1089.0" y="404" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D* = 0.59970</text>
+<line x1="425.0" y1="464" x2="425.0" y2="478" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="480" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="501" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">5  Clamp</text>
+<text x="42" y="524" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D = clamp(D*, 0, 1)</text>
+<text x="42" y="544" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">keeps D a fraction; with the default k_acc a deforming cell lands on D = 1</text>
+<rect x="854.0" y="494" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">D = 1.00000  → clamped</text>
+<rect x="1089.0" y="494" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D = 0.59970</text>
+<line x1="425.0" y1="554" x2="425.0" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="570" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="591" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">6  Viscosity weakening</text>
+<text x="42" y="614" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η ← max( η · (1 − w_max · D), η_min )</text>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">w_max = 0.99 (cfg.damage_max_weakening), η_min = 1.0×10<tspan baseline-shift="super" font-size="10">18</tspan> Pa s</text>
+<rect x="854.0" y="584" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">×0.0100 → 1.0×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+<rect x="1089.0" y="584" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">×0.4063 → 4.1×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+<line x1="425.0" y1="644" x2="425.0" y2="658" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="660" width="790" height="74" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="42" y="681" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">7  In the time loop</text>
+<text x="42" y="704" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">evolve once in step 2; composite path: re-apply in each nonlinear sweep</text>
+<text x="42" y="724" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">D is Eulerian (not advected), saved in checkpoints; switch on with cfg.useDamage = true</text>
+<rect x="854.0" y="674" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D frozen for the step</text>
+<rect x="1089.0" y="674" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">D frozen for the step</text>
+</svg>

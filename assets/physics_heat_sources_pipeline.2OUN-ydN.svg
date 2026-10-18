@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="880" viewBox="0 0 1340 880">
+<rect width="1340" height="880" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">diffuse_temperature(Tg, grid, cfg, dt; Cg, H_latent)  +  cmb_heat_flux.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">inputs per cell: temperature T, radial velocity v_r, viscosity η, strain rate ε̇_II, pile fraction, HPE field hpe; time t, T_cmb</text>
+<text x="858.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">cell A: hot upwelling, pile</text>
+<text x="858.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">T 3950 K, v_r +3 cm/yr, pile 1, hpe 1</text>
+<text x="1093.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">cell B: cold downwelling, residue</text>
+<text x="1093.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">T 3800 K, v_r −5 cm/yr, pile 0, hpe 0.4</text>
+<rect x="30" y="120" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">1  Radiogenic rate, decayed</text>
+<text x="42" y="164" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">H0(t) = H0 · exp(−ln2 · t / t½)      (_radiogenic_H0)</text>
+<text x="42" y="184" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">H0 = 5.0×10<tspan baseline-shift="super" font-size="10">-12</tspan> W/kg, t½ = 2.43 Gyr, t = 1.5 Gyr;  isotope sum with useFourElementRadiogenic</text>
+<rect x="854.0" y="134" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">3.3×10<tspan baseline-shift="super" font-size="10">-12</tspan> W/kg</text>
+<rect x="1089.0" y="134" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">3.3×10<tspan baseline-shift="super" font-size="10">-12</tspan> W/kg</text>
+<line x1="425.0" y1="194" x2="425.0" y2="208" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="210" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="231" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">2  Partition and lithology factors</text>
+<text x="42" y="254" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">H = H0(t) [ f_m f_dep + (f_c − f_m) C_cont + (f_p − f_m) C_pile ]</text>
+<text x="42" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">f_m = 1.0, f_c = 10.0, f_p = 3.0;  f_dep = marker field hpe (clamped to [0, 1/D]) when D = radioHeatPartitionD &gt; 0, else 1</text>
+<rect x="854.0" y="224" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">9.8×10<tspan baseline-shift="super" font-size="10">-12</tspan> W/kg</text>
+<rect x="1089.0" y="224" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">1.3×10<tspan baseline-shift="super" font-size="10">-12</tspan> W/kg</text>
+<line x1="425.0" y1="284" x2="425.0" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="321" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">3  Radiogenic heating rate</text>
+<text x="42" y="344" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">S_rad = H / c_p</text>
+<text x="42" y="364" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">c_p = 1250 J/(kg K) everywhere</text>
+<rect x="854.0" y="314" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">+0.25 K/Myr</text>
+<rect x="1089.0" y="314" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">+0.03 K/Myr</text>
+<line x1="425.0" y1="374" x2="425.0" y2="388" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="390" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">4  Adiabatic term (ALA)</text>
+<text x="42" y="434" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">H_ad = −ρ_ref(r) α(r) g T v_r       (v_r at the cell centre)</text>
+<text x="42" y="454" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ρ_ref = 4982 kg/m³, α = 1.0×10<tspan baseline-shift="super" font-size="10">-5</tspan> 1/K, g = 9.81 m/s²; ALA and useShearHeating (both default)</text>
+<rect x="854.0" y="404" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="424.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">−1.8×10<tspan baseline-shift="super" font-size="10">-6</tspan> W/m³</text>
+<text x="862.0" y="440.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">= −9.35 K/Myr</text>
+<rect x="1089.0" y="404" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="424.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">3.0×10<tspan baseline-shift="super" font-size="10">-6</tspan> W/m³</text>
+<text x="1097.0" y="440.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">= +14.99 K/Myr</text>
+<line x1="425.0" y1="464" x2="425.0" y2="478" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="480" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="501" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">5  Viscous dissipation (ALA)</text>
+<text x="42" y="524" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Φ = 4 η ε̇_II²</text>
+<text x="42" y="544" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">carried only together with the adiabatic term; in a statistically steady state their volume integrals balance</text>
+<rect x="854.0" y="494" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="514.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">4.0×10<tspan baseline-shift="super" font-size="10">-9</tspan> W/m³</text>
+<text x="862.0" y="530.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">= +0.02 K/Myr</text>
+<rect x="1089.0" y="494" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="514.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">1.6×10<tspan baseline-shift="super" font-size="10">-7</tspan> W/m³</text>
+<text x="1097.0" y="530.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">= +0.81 K/Myr</text>
+<line x1="425.0" y1="554" x2="425.0" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="570" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="591" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">6  Total source in the energy equation</text>
+<text x="42" y="614" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">S = H / c_p + (H_ad + Φ + latent + heat pipe) / (ρ_ref c_p)</text>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">added to conduction by diffuse_temperature (Crank–Nicolson, θ = 0.5); latent and heat pipe are 0 here</text>
+<rect x="854.0" y="584" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">−9.08 K/Myr</text>
+<rect x="1089.0" y="584" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">+15.83 K/Myr</text>
+<line x1="425.0" y1="644" x2="425.0" y2="658" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="660" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="681" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">7  Conductive flux through the CMB face</text>
+<text x="42" y="704" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">q_cmb = k (T_cmb − T_1) / (r_1 − R_in),   k = κ(z_1) ρ_ref(z_1) c_p</text>
+<text x="42" y="724" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">T_cmb = 4000 K held on the face, half a cell (7.5 km) below cell 1; k = 9.32 W/(m K), cell 1's own (wall_conductivity)</text>
+<rect x="854.0" y="674" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">q_cmb = 0.062 W/m²</text>
+<rect x="1089.0" y="674" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">q_cmb = 0.248 W/m²</text>
+<line x1="425.0" y1="734" x2="425.0" y2="748" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="750" width="790" height="74" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="42" y="771" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">8  Core cooling (cmbHeatfluxMode = "parameterized")</text>
+<text x="42" y="794" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">C_core dT_cmb/dt = −P_in,   C_core = f_L ρ_c c_c (4/3) π R_in³</text>
+<text x="42" y="814" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ρ_c = 12000 kg/m³, c_c = 800 J/(kg K), f_L = 1; P_in = θ-weighted wall power; fixed_T (default) holds T_cmb</text>
+<rect x="854" y="760" width="458" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862" y="782" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">both columns: P_in = 23.6 TW over 4π R_in², C_core = 1.7×10<tspan baseline-shift="super" font-size="10">27</tspan> J/K</text>
+<text x="862" y="802" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">−439 K/Gyr  (−0.439 K per Myr step)</text>
+</svg>

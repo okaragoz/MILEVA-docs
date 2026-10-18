@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="790" viewBox="0 0 1340 790">
+<rect width="1340" height="790" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">reference_table_profile(cfg),  profile_viscosity(T, z, T_ad, cfg)   physics/material_tables.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">inputs: the Perple_X table (cfg.referenceTable), T_pot, g, the radial and lateral profiles; per cell: depth z and temperature T</text>
+<text x="858.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">cold cell, 300 km</text>
+<text x="858.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">T = T_ad -300 K</text>
+<text x="1093.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">hot cell, 1500 km</text>
+<text x="1093.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">T = T_ad +300 K</text>
+<rect x="30" y="120" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Read the table</text>
+<text x="42" y="164" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">read_perplex_table:  ρ, α, c_p on a regular grid [i_T, j_P]</text>
+<text x="42" y="184" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">181 × 262 nodes, T 400–4000 K (step 20 K), P 1.5–135 GPa (step 0.51 GPa)</text>
+<rect x="854.0" y="130" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">table cell T 1720–1740 K</text>
+<text x="862.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P 10.20–10.71 GPa</text>
+<rect x="1089.0" y="130" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">table cell T 2120–2140 K</text>
+<text x="1097.0" y="171.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P 62.88–63.39 GPa</text>
+<line x1="425.0" y1="194" x2="425.0" y2="208" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="210" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="231" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Bilinear interpolation</text>
+<text x="42" y="254" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">F = (1−a)(1−b) F_ij + a(1−b) F_i+1,j + (1−a)b F_i,j+1 + ab F_i+1,j+1</text>
+<text x="42" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">a, b = fractional position in T and P; outside the table the edge value (clamped a, b)</text>
+<rect x="854.0" y="220" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="243.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">a 0.22, b 0.14:  ρ 3664 kg/m³</text>
+<text x="862.0" y="261.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">α 2.87×10<tspan baseline-shift="super" font-size="10">-5</tspan> /K,  c_p 1212 J/kg/K</text>
+<rect x="1089.0" y="220" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="243.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">a 0.22, b 0.12:  ρ 4960 kg/m³</text>
+<text x="1097.0" y="261.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">α 1.70×10<tspan baseline-shift="super" font-size="10">-5</tspan> /K,  c_p 1204 J/kg/K</text>
+<line x1="425.0" y1="284" x2="425.0" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="321" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">3  Adiabat through the table (Heun)</text>
+<text x="42" y="344" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">dT/dz = α(P,T) g T / c_p(P,T),   dP/dz = ρ(P,T) g</text>
+<text x="42" y="364" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">from T = T_pot = 1600 K, P = 0 at the surface; 1 km steps, constant g = 9.81 m/s²</text>
+<rect x="854.0" y="310" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="333.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T_ad 1724 K,  P 10.3 GPa</text>
+<text x="862.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">dT/dz 0.40 K/km</text>
+<rect x="1089.0" y="310" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="333.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T_ad 2124 K,  P 62.9 GPa</text>
+<text x="1097.0" y="351.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">dT/dz 0.30 K/km</text>
+<line x1="425.0" y1="374" x2="425.0" y2="388" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="390" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">4  Reference state (ALA / TALA)</text>
+<text x="42" y="434" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ρ_ref(z), α(z), T_ad(z) = table values along the adiabat</text>
+<text x="42" y="454" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">linear in depth between the 1 km nodes; c_p of the energy equation stays CP_REF</text>
+<rect x="854.0" y="400" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="423.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ρ_ref 3664 kg/m³</text>
+<text x="862.0" y="441.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">α 2.87×10<tspan baseline-shift="super" font-size="10">-5</tspan> /K,  T_ad 1724 K</text>
+<rect x="1089.0" y="400" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="423.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ρ_ref 4960 kg/m³</text>
+<text x="1097.0" y="441.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">α 1.70×10<tspan baseline-shift="super" font-size="10">-5</tspan> /K,  T_ad 2124 K</text>
+<line x1="425.0" y1="464" x2="425.0" y2="478" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="480" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="501" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">5  Radial and lateral profiles</text>
+<text x="42" y="524" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_r(z), (H/nR)(z):  linear interpolation in depth</text>
+<text x="42" y="544" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">radial-visc-simple.txt (Steinberger &amp; Calderwood 2006), temp-viscosity-prefactor.txt</text>
+<rect x="854.0" y="490" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="513.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_r 3.2×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s</text>
+<text x="862.0" y="531.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">H/nR 22039 K</text>
+<rect x="1089.0" y="490" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="513.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_r 5.2×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<text x="1097.0" y="531.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">H/nR 52204 K</text>
+<line x1="425.0" y1="554" x2="425.0" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="570" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="591" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">6  Lateral temperature factor</text>
+<text x="42" y="614" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">f = exp[ (H/nR) (T_ad − T) / (T T_ad) ],   f → clamp(f, 1/c, c)</text>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">c = cfg.maxLateralViscosityVariation = 1.0×10<tspan baseline-shift="super" font-size="10">3</tspan>; T_ad from adiabat_temperature, the table adiabat when cfg.referenceTable is set</text>
+<rect x="854.0" y="580" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="603.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T = T_ad -300 K = 1424 K</text>
+<text x="862.0" y="621.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">f = 14.8</text>
+<rect x="1089.0" y="580" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="603.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T = T_ad +300 K = 2424 K</text>
+<text x="1097.0" y="621.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">f = 0.0478</text>
+<line x1="425.0" y1="644" x2="425.0" y2="658" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="660" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="681" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">7  Viscosity and bounds</text>
+<text x="42" y="704" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η = clamp(η_r · f, η_min, η_max)</text>
+<text x="42" y="724" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">η_min = 1.0×10<tspan baseline-shift="super" font-size="10">20</tspan>, η_max = 5.0×10<tspan baseline-shift="super" font-size="10">23</tspan> Pa s; used when cfg.radialViscosityFile is set and cfg.useCompositeRheology is false</text>
+<rect x="854.0" y="670" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">4.7×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+<rect x="1089.0" y="670" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">2.5×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+</svg>

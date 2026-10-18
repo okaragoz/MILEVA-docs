@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="790" viewBox="0 0 1340 790">
+<rect width="1340" height="790" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">viscoelastoplastic(η, ε̇_II, τ_old, Δt, mat, cfg)   physics/viscoelastoplastic.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">inputs per cell: viscosity η of the step, strain-rate invariant ε̇_II and time step Δt of the previous step, stored stress τ_old (tau_vep)</text>
+<text x="748.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">yielding lid</text>
+<text x="748.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">η 1.0×10<tspan baseline-shift="super" font-size="10">23</tspan>, ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-14</tspan>, τ_old 100 MPa</text>
+<text x="943.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">elastic lid</text>
+<text x="943.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">η 1.0×10<tspan baseline-shift="super" font-size="10">23</tspan>, ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan>, τ_old 10 MPa</text>
+<text x="1138.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">viscous mantle</text>
+<text x="1138.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">η 1.0×10<tspan baseline-shift="super" font-size="10">21</tspan>, ε̇ 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan>, τ_old 5 MPa</text>
+<rect x="30" y="120" width="690" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Maxwell viscosity</text>
+<text x="42" y="164" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_M = η G Δt / (η + G Δt)</text>
+<text x="42" y="184" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">G = 80 GPa (fixed in the function), Δt = previous step, here 5 kyr: G Δt = 1.3×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<rect x="744.0" y="134" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_M = 1.1×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<rect x="939.0" y="134" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_M = 1.1×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<rect x="1134.0" y="134" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_M = 9.3×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s</text>
+<line x1="375.0" y1="194" x2="375.0" y2="208" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="210" width="690" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="231" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Trial stress and Deborah number</text>
+<text x="42" y="254" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">τ_trial = 2 η_M ε̇_II,      De = η / (G Δt)</text>
+<text x="42" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">De &gt; 1: Maxwell time η/G exceeds Δt, so elasticity lowers η (the unused mask is_elastic flags De &lt; 1)</text>
+<rect x="744.0" y="224" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">τ_tr 224 MPa, De 7.9</text>
+<rect x="939.0" y="224" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">τ_tr 22 MPa, De 7.9</text>
+<rect x="1134.0" y="224" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">τ_tr 1.85 MPa, De 0.079</text>
+<line x1="375.0" y1="284" x2="375.0" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="690" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="321" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">3  Yield stress on a uniform column</text>
+<text x="42" y="344" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">τ_y = clamp(C + μ ρ0 g z, 0, τ_max)</text>
+<text x="42" y="364" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">C = 20 MPa, μ = 0.2, τ_max = 300 MPa, z = depth of cell centre (uniform Nr cells)</text>
+<rect x="744.0" y="314" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">z 15 km: τ_y 117 MPa</text>
+<rect x="939.0" y="314" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">z 45 km: τ_y 300 MPa</text>
+<rect x="1134.0" y="314" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">z 305 km: τ_y 300 MPa</text>
+<line x1="375.0" y1="374" x2="375.0" y2="388" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="390" width="690" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">4  Plastic cap</text>
+<text x="42" y="434" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">if τ_trial &gt; τ_y:   η = min(η_M, τ_y / (2 max(ε̇_II, 10<tspan baseline-shift="super" font-size="10">-20</tspan>)))</text>
+<text x="42" y="454" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">otherwise η stays η_M</text>
+<rect x="744.0" y="404" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">yields: η 5.9×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+<rect x="939.0" y="404" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">no yield: η 1.1×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<rect x="1134.0" y="404" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">no yield: η 9.3×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s</text>
+<line x1="375.0" y1="464" x2="375.0" y2="478" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="480" width="690" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="501" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">5  Stress update</text>
+<text x="42" y="524" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">τ_new = τ_old e^(−GΔt/η) + 2 η ε̇_II (1 − e^(−GΔt/η)),   τ_new = τ_y if plastic</text>
+<text x="42" y="544" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">η in the exponent is the input viscosity; η in the target is the capped one of stage 4 (before stage 6)</text>
+<rect x="744.0" y="494" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">τ_new 117 MPa (cap)</text>
+<rect x="939.0" y="494" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">τ_new 11 MPa</text>
+<rect x="1134.0" y="494" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">τ_new 1.85 MPa</text>
+<line x1="375.0" y1="554" x2="375.0" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="570" width="690" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="591" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">6  Bounds</text>
+<text x="42" y="614" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_eff = clamp(η, η_min, η_max)</text>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">η_min = 1.0×10<tspan baseline-shift="super" font-size="10">18</tspan>, η_max = 1.0×10<tspan baseline-shift="super" font-size="10">24</tspan> Pa s</text>
+<rect x="744.0" y="584" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_eff = 5.9×10<tspan baseline-shift="super" font-size="10">21</tspan> Pa s</text>
+<rect x="939.0" y="584" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_eff = 1.1×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<rect x="1134.0" y="584" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_eff = 9.3×10<tspan baseline-shift="super" font-size="10">20</tspan> Pa s</text>
+<line x1="375.0" y1="644" x2="375.0" y2="658" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="660" width="690" height="74" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="42" y="681" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">7  What leaves the function</text>
+<text x="42" y="704" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_eff → viscosity of the Stokes solve;   τ_new → tau_vep</text>
+<text x="42" y="724" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">tau_vep returns as τ_old on the next call only; it is not a force in the momentum equation</text>
+<rect x="744.0" y="674" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="751.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">η_eff/η = 0.0586</text>
+<rect x="939.0" y="674" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="946.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">η_eff/η = 0.112</text>
+<rect x="1134.0" y="674" width="185.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1141.0" y="702.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">η_eff/η = 0.927</text>
+</svg>

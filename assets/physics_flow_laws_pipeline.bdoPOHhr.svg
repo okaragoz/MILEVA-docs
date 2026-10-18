@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="714" viewBox="0 0 1340 714">
+<rect width="1340" height="714" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">flowlaw_viscosity(law, T, P, ε̇_II, d, W)   physics/flow_laws.jl</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">a law stored as its paper prints it (axial compression test) is inverted for the stress at the cell's strain rate</text>
+<text x="858.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">lithosphere cell</text>
+<text x="858.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">T 1000 K, P 2 GPa, ε̇_II 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<text x="1093.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">mantle cell</text>
+<text x="1093.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">T 1600 K, P 5 GPa, ε̇_II 1.0×10<tspan baseline-shift="super" font-size="10">-15</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="30" y="120" width="790" height="78" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  The published law (axial test)</text>
+<text x="42" y="165" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ε̇ = A σ^n d^(−m) W^r exp(−(E + PV)/RT)      σ in MPa, d in µm</text>
+<text x="42" y="186" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">HK03 dry diff: A 1.5×10<tspan baseline-shift="super" font-size="10">9</tspan>, n 1, m 3, E 375, V 6;  dry disl: A 1.1×10<tspan baseline-shift="super" font-size="10">5</tspan>, n 3.5, E 530, V 15   (E kJ/mol, V cm³/mol)</text>
+<rect x="854.0" y="130" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="155.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">diff: K = ε̇(1 Pa) = 9.2×10<tspan baseline-shift="super" font-size="10">-27</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<text x="862.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">disl: K = ε̇(1 Pa) = 6.2×10<tspan baseline-shift="super" font-size="10">-46</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="1089.0" y="130" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="155.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">diff: K = ε̇(1 Pa) = 9.0×10<tspan baseline-shift="super" font-size="10">-20</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<text x="1097.0" y="173.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">disl: K = ε̇(1 Pa) = 2.0×10<tspan baseline-shift="super" font-size="10">-36</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<line x1="425.0" y1="198" x2="425.0" y2="212" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="214" width="790" height="78" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="235" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  From the test to the invariants</text>
+<text x="42" y="259" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">σ = √3 τ_II,     ε̇ = (2/√3) ε̇_II</text>
+<text x="42" y="280" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">incompressible axial flow; η = τ_II / (2 ε̇_II), ε̇_II = √(ε̇:ε̇/2); d = 1 mm, dry (W unused)</text>
+<rect x="854.0" y="224" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="258.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ε̇ = 1.2×10<tspan baseline-shift="super" font-size="10">-15</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<rect x="1089.0" y="224" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="258.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ε̇ = 1.2×10<tspan baseline-shift="super" font-size="10">-15</tspan> s<tspan baseline-shift="super" font-size="10">-1</tspan></text>
+<line x1="425.0" y1="292" x2="425.0" y2="306" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="308" width="790" height="78" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="329" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">3  Power laws: closed-form inversion</text>
+<text x="42" y="353" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">log σ = (log ε̇ − log K) / n,     η = (σ/√3) / (2 ε̇_II)</text>
+<text x="42" y="374" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">K = the law's strain rate at σ = 1 Pa (step 1); in the test variables η = σ/(3 ε̇) for every n</text>
+<rect x="854.0" y="318" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="343.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">diff: σ 126 GPa, η 3.6×10<tspan baseline-shift="super" font-size="10">25</tspan></text>
+<text x="862.0" y="361.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">disl: σ 446 MPa, η 1.3×10<tspan baseline-shift="super" font-size="10">23</tspan></text>
+<rect x="1089.0" y="318" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="343.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">diff: σ 13 kPa, η 3.7×10<tspan baseline-shift="super" font-size="10">18</tspan></text>
+<text x="1097.0" y="361.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">disl: σ 861 kPa, η 2.5×10<tspan baseline-shift="super" font-size="10">20</tspan></text>
+<line x1="425.0" y1="386" x2="425.0" y2="400" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="402" width="790" height="78" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="423" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">4  Peierls law: bisection</text>
+<text x="42" y="447" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ε̇ = A σ^n exp[−(E/RT)(1 − (σ/σ_P)^p)^q],  solve ε̇(σ) = ε̇ in log σ</text>
+<text x="42" y="468" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">Mei10: A 1.4×10<tspan baseline-shift="super" font-size="10">-7</tspan>, n 2, E 320 kJ/mol, σ_P 5.9 GPa, p 1/2, q 1;  60 halvings of log σ on [1 kPa, σ_P]</text>
+<rect x="854.0" y="412" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="446.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">σ 290 MPa, η_P 8.4×10<tspan baseline-shift="super" font-size="10">22</tspan></text>
+<rect x="1089.0" y="412" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="437.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">T ≥ 1100 K: not evaluated</text>
+<text x="1097.0" y="455.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_P = ∞</text>
+<line x1="425.0" y1="480" x2="425.0" y2="494" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="496" width="790" height="78" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="517" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">5  Harmonic sum in composite_rheology</text>
+<text x="42" y="541" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_duct = ( 1/η_diff + 1/η_disl + 1/η_GBS + 1/η_P )⁻¹</text>
+<text x="42" y="562" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">η_GBS with cfg.useGBS (off here), η_P with cfg.usePeierlsCreep at T &lt; 1100 K; cfg.eta660kmFactor (cfg.use660kmJump) scales all but η_P</text>
+<rect x="854.0" y="506" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="540.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_duct = 5.1×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s</text>
+<rect x="1089.0" y="506" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="540.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η_duct = 3.6×10<tspan baseline-shift="super" font-size="10">18</tspan> Pa s</text>
+<line x1="425.0" y1="574" x2="425.0" y2="588" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="590" width="790" height="78" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="611" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">6  Yield and bounds, as on the Rheology page</text>
+<text x="42" y="635" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">η = clamp( min(η_duct, τ_y/(2 ε̇_II)), η_min, η_max )</text>
+<text x="42" y="656" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">τ_y = min(C + μP, τ_max) = min(20 MPa + 0.2 P, 300 MPa);  η_min = 1.0×10<tspan baseline-shift="super" font-size="10">18</tspan>, η_max = 1.0×10<tspan baseline-shift="super" font-size="10">24</tspan></text>
+<rect x="854.0" y="600" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="634.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">5.1×10<tspan baseline-shift="super" font-size="10">22</tspan> Pa s  → creeps</text>
+<rect x="1089.0" y="600" width="223.0" height="58" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="634.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">3.6×10<tspan baseline-shift="super" font-size="10">18</tspan> Pa s  → creeps</text>
+</svg>

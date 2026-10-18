@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="804" viewBox="0 0 1340 804">
+<rect width="1340" height="804" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">compute_buoyancy(T, grid, cfg, mat, phase_id, C)  and  melt_phase(T, P, r, mat, cfg)   for the 660 km analogue</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">inputs per cell: depth z, temperature T; velocity v_r for the latent heat. Flags: cfg.useClaperonBuoyancy, cfg.useMeltingPhase,</text>
+<text x="30" y="74" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">cfg.usePhaseLatentHeat (all off by default); physics/compute_buoyancy.jl and physics/melt_phase.jl.</text>
+<text x="858.0" y="104" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">cold column, sinking</text>
+<text x="858.0" y="122" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">z 730 km, T 1673 K, v_r −1 cm/yr</text>
+<text x="1093.0" y="104" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">hot column, rising</text>
+<text x="1093.0" y="122" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">z 730 km, T 2073 K, v_r +1 cm/yr</text>
+<rect x="30" y="134" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="155" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Lithostatic pressure</text>
+<text x="42" y="178" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P(z) = g z · ½[ρ_ref(a z) + ρ_ref(b z)],  ρ_ref = ρ0 (T_ad/T_pot)^(1/γ_G)</text>
+<text x="42" y="198" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">mantle_pressure: two-point Gauss rule (a, b = ½ ∓ ½/√3) under ALA/TALA; ρ0 g z under Boussinesq</text>
+<rect x="854.0" y="144" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="176.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P = 25.46 GPa</text>
+<rect x="1089.0" y="144" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="176.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P = 25.46 GPa</text>
+<line x1="425.0" y1="208" x2="425.0" y2="222" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="224" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="245" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Clapeyron-deflected boundary</text>
+<text x="42" y="268" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P_b(T) = P(z_k) + γ_k (T − T_k)</text>
+<text x="42" y="288" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">660 analogue: z_k = 730 km, γ_k = −2.5 MPa/K, T_k = 1900 K (mat.clap_*_660, mat.gamma_660); basalt shift cfg.compClapeyron_dP_660 = 0</text>
+<rect x="854.0" y="234" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="257.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P_b = 26.03 GPa at 1673 K</text>
+<text x="862.0" y="275.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">column crosses it at 745 km</text>
+<rect x="1089.0" y="234" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="257.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">P_b = 25.03 GPa at 2073 K</text>
+<text x="1097.0" y="275.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">column crosses it at 719 km</text>
+<line x1="425.0" y1="298" x2="425.0" y2="312" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="314" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="335" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">3  Phase index (melt_phase)</text>
+<text x="42" y="358" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">phase_id = 1; set to k+1 in order where P &gt; P(z_k) + γ_k (T − T_k)</text>
+<text x="42" y="378" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">integer, same table as stage 2: z_k = 453 / 520 / 730 km (cfg.useEarthPhaseBoundaries, on); passing it adds the smooth 520 term</text>
+<rect x="854.0" y="324" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="356.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">3 (ringwoodite)</text>
+<rect x="1089.0" y="324" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="356.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">4 (bridgmanite)</text>
+<line x1="425.0" y1="388" x2="425.0" y2="402" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="404" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="425" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">4  Smooth phase function</text>
+<text x="42" y="448" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Γ_k = ½ [ 1 + tanh( (P − P(z_k) − γ_k (T − T_k)) / δP ) ]</text>
+<text x="42" y="468" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">δP = n Δr (dP/dz) / 2.2 = 0.77 GPa  (n = 3 cells, Δr = 15.1 km, dP/dz = 37.4 MPa/km at the 660 analogue)</text>
+<rect x="854.0" y="414" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="437.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Γ_660 = 0.186</text>
+<text x="862.0" y="455.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">row mean ⟨Γ_660⟩ = 0.466</text>
+<rect x="1089.0" y="414" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="437.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Γ_660 = 0.756</text>
+<text x="1097.0" y="455.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">row mean ⟨Γ_660⟩ = 0.466</text>
+<line x1="425.0" y1="478" x2="425.0" y2="492" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="494" width="790" height="74" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="42" y="515" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">5  Density jump, lateral anomaly</text>
+<text x="42" y="538" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">δρ_phase = Σ_k Δρ_k (Γ_k − ⟨Γ_k⟩_r)</text>
+<text x="42" y="558" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">Δρ = 180 / 100 / 400 kg/m³ at the 410 / 520 / 660 analogues; uniform pressure gives no anomaly</text>
+<rect x="854.0" y="504" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="527.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">δρ_660 = −112.1 kg/m³</text>
+<text x="862.0" y="545.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">all transitions −112.1 kg/m³</text>
+<rect x="1089.0" y="504" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="527.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#8c4da6" text-anchor="start">δρ_660 = +115.9 kg/m³</text>
+<text x="1097.0" y="545.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">all transitions +115.9 kg/m³</text>
+<line x1="425.0" y1="568" x2="425.0" y2="582" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="584" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="605" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">6  Buoyancy force (compute_buoyancy)</text>
+<text x="42" y="628" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">f_r = −(δρ_T + δρ_phase + δρ_comp) g</text>
+<text x="42" y="648" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">phase part shown; added to the thermal and compositional terms, positive is upward</text>
+<rect x="854.0" y="594" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="617.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">f_phase = +1100 N/m³</text>
+<text x="862.0" y="635.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">pushes the cell up</text>
+<rect x="1089.0" y="594" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="617.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">f_phase = −1137 N/m³</text>
+<text x="1097.0" y="635.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">pulls the cell down</text>
+<line x1="425.0" y1="658" x2="425.0" y2="672" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="674" width="790" height="74" rx="8" fill="#fde9e7" stroke="#b8322a" stroke-width="1.6"/>
+<text x="42" y="695" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#b8322a" text-anchor="start">7  Latent heat (melt_phase)</text>
+<text x="42" y="718" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Q_k = ρ0 L_k [ (Γ_k − Γ_k,prev)/Δt + v_r ∂Γ_k/∂r ]</text>
+<text x="42" y="738" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">cfg.usePhaseLatentHeat; L_660 = −250 kJ/kg; the boundary, pivot and δP of stages 2 and 4; steady here, so only v_r ∂Γ/∂r</text>
+<rect x="854.0" y="684" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="707.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">peak Q = −5.5×10<tspan baseline-shift="super" font-size="10">-6</tspan> W m<tspan baseline-shift="super" font-size="10">-3</tspan></text>
+<text x="862.0" y="725.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">at 745 km (boundary 745 km)</text>
+<rect x="1089.0" y="684" width="223.0" height="54" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="707.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">peak Q = 5.4×10<tspan baseline-shift="super" font-size="10">-6</tspan> W m<tspan baseline-shift="super" font-size="10">-3</tspan></text>
+<text x="1097.0" y="725.0" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">at 715 km (boundary 719 km)</text>
+</svg>

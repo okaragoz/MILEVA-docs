@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1340" height="1084" viewBox="0 0 1340 1084">
+<rect width="1340" height="1084" fill="white"/>
+<defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#444"/></marker></defs>
+<text x="30" y="30" font-family="Menlo, Consolas, monospace" font-size="16" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">free_surface(h, V_r, V_θ, grid, cfg, Δt, state)  →  isostasy(h, ρ, grid, cfg, Δt, state)</text>
+<text x="30" y="56" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">one time step, 2-D: kinematic update (cfg.useFreeSurface), then Airy relaxation (cfg.useIsostasy); both off by default</text>
+<text x="858.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">lid centre</text>
+<text x="858.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">θ = 180.0°, lid 90 km thick</text>
+<text x="1093.0" y="90" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#222" text-anchor="start">lid flank</text>
+<text x="1093.0" y="108" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#444" text-anchor="start">θ = 168.0°, lid 65 km thick</text>
+<text x="30" y="682" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">physics/isostasy.jl</text>
+<text x="30" y="112" font-family="Menlo, Consolas, monospace" font-size="12" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">physics/free_surface.jl</text>
+<rect x="30" y="120" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="141" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">1  Surface velocities</text>
+<text x="42" y="164" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">V_r,s = V_r[N_r+1, j] (top face),   V_θ,s = V_θ[N_r, j] (top cell row)</text>
+<text x="42" y="184" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">the Stokes solve keeps V_r = 0 on the top face, so the tracker sees only V_θ,s</text>
+<rect x="854.0" y="134" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">V_r,s 0,  V_θ,s 5.00 cm/yr</text>
+<rect x="1089.0" y="134" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="162.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">V_r,s 0,  V_θ,s 4.89 cm/yr</text>
+<line x1="425.0" y1="194" x2="425.0" y2="208" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="210" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="231" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">2  Slope of the deflection</text>
+<text x="42" y="254" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">∂h/∂θ = (h_j+1 − h_j−1) / (2 Δθ),   periodic in θ</text>
+<text x="42" y="274" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">Δθ = 1.0°; h_old is the deflection entering the step</text>
+<rect x="854.0" y="224" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_old -363.4 m,  ∂h/∂θ -0.1 m/rad</text>
+<rect x="1089.0" y="224" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="252.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_old -118.2 m,  ∂h/∂θ -1320.9 m/rad</text>
+<line x1="425.0" y1="284" x2="425.0" y2="298" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="300" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="321" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">3  Kinematic rate</text>
+<text x="42" y="344" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ḣ = V_r,s − (V_θ,s / R_out) · ∂h/∂θ</text>
+<text x="42" y="364" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">R_out = 6371 km; with V_r,s = 0 this is advection of h by the surface flow</text>
+<rect x="854.0" y="314" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ḣ = 0.000 mm/yr</text>
+<rect x="1089.0" y="314" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ḣ = 0.010 mm/yr</text>
+<line x1="425.0" y1="374" x2="425.0" y2="388" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="390" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="411" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">4  Stabilised step</text>
+<text x="42" y="434" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h* = (h_old + Δt ḣ) / [1 + f_s Δt max|V_θ,s| / (R_out Δθ)]</text>
+<text x="42" y="454" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">f_s = cfg.freeSurfaceStabilization = 0.5, Δt = 1 kyr; divisor 1.0002248, one value for all j, shrinks all of h</text>
+<rect x="854.0" y="404" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h* = -363.318 m</text>
+<rect x="1089.0" y="404" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="432.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h* = -118.198 m</text>
+<line x1="425.0" y1="464" x2="425.0" y2="478" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="480" width="790" height="74" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="42" y="501" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#1f66bf" text-anchor="start">5  Clamp and smooth</text>
+<text x="42" y="524" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h = clamp(h*, −h_max, h_max);   h_j ← 0.8 h_j + 0.1 (h_j−1 + h_j+1)</text>
+<text x="42" y="544" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">h_max = cfg.freeSurfaceMaxDrop = 50 km; the filter is applied once per step</text>
+<rect x="854.0" y="494" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_fs = -362.829 m</text>
+<rect x="1089.0" y="494" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="522.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_fs = -119.053 m</text>
+<line x1="425.0" y1="554" x2="425.0" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="570" width="790" height="74" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="42" y="591" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#555555" text-anchor="start">6  Mesh velocity and top-cell temperature</text>
+<text x="42" y="614" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">w = (h_fs − h_old) / Δt;    T_Nr ← T_Nr − Δt · w · (T_Nr − T_Nr−1) / Δr</text>
+<text x="42" y="634" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">applied in main_SphCon.jl after diffusion, Δr = grid.dr; it persists only with cfg.temperatureOnGrid (marker T is not corrected)</text>
+<rect x="854.0" y="584" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">w 0.57 mm/yr, ΔT 8.2e-03 K</text>
+<rect x="1089.0" y="584" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="612.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">w -0.82 mm/yr, ΔT -1.6e-02 K</text>
+<line x1="425.0" y1="644" x2="425.0" y2="692" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="694" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="715" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">7  Thermal density (driver)</text>
+<text x="42" y="738" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ρ = ρ0 [1 − α (T − ⟨T⟩)],   ⟨T⟩ the mean over all cells</text>
+<text x="42" y="758" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">ρ0 = 3300 kg/m³, α = 3.0×10<tspan baseline-shift="super" font-size="10">-5</tspan> 1/K; built in main_SphCon.jl when cfg.useIsostasy is on</text>
+<rect x="854.0" y="708" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="736.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ρ at 70 km = 3334.6 kg/m³</text>
+<rect x="1089.0" y="708" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="736.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">ρ at 70 km = 3298.9 kg/m³</text>
+<line x1="425.0" y1="768" x2="425.0" y2="782" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="784" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="805" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">8  Lateral anomaly in the compensation layer</text>
+<text x="42" y="828" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Δρ_i = ρ_i − ⟨ρ⟩_θ(r_i)   for rows with r_i ≥ R_out − d_comp</text>
+<text x="42" y="848" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">d_comp = cfg.isostaticDepth_km = 100 km → 7 rows; ⟨ρ⟩_θ is the azimuthal mean of the row</text>
+<rect x="854.0" y="798" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="826.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Σ Δρ_i = 170.7 kg/m³</text>
+<rect x="1089.0" y="798" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="826.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">Σ Δρ_i = 55.3 kg/m³</text>
+<line x1="425.0" y1="858" x2="425.0" y2="872" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="874" width="790" height="74" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="42" y="895" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#c05a14" text-anchor="start">9  Airy equilibrium</text>
+<text x="42" y="918" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_eq = −Δr · Σ Δρ_i / ρ0</text>
+<text x="42" y="938" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">Δr = grid.dr = 14.45 km (exact on a uniform radial grid)</text>
+<rect x="854.0" y="888" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="916.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_eq = -747.3 m</text>
+<rect x="1089.0" y="888" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="916.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h_eq = -242.2 m</text>
+<line x1="425.0" y1="948" x2="425.0" y2="962" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="30" y="964" width="790" height="74" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="42" y="985" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">10  Relaxation toward equilibrium</text>
+<text x="42" y="1008" font-family="Menlo, Consolas, monospace" font-size="13" font-weight="normal" font-style="normal" fill="#222" text-anchor="start">h = h_eq + (h_fs − h_eq) · exp(−Δt / τ)</text>
+<text x="42" y="1028" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" font-style="normal" fill="#555" text-anchor="start">τ = cfg.isostaticTau_yr = 3000 yr, exp(−Δt/τ) = 0.717; h is the deflection carried to the next step</text>
+<rect x="854.0" y="978" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="862.0" y="1006.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">h = -471.8 m</text>
+<rect x="1089.0" y="978" width="223.0" height="46" rx="6" fill="#fafafa" stroke="#ccc"/>
+<text x="1097.0" y="1006.0" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" font-style="normal" fill="#2e9a59" text-anchor="start">h = -154.0 m</text>
+</svg>

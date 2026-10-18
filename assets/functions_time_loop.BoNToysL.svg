@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="1192" viewBox="0 0 1010 1192">
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#444"/></marker>
+<marker id="ahb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1f66bf"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="150" y="36" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#222" text-anchor="start">main_SphCon(cfg, mat, temp)</text>
+<rect x="150" y="52" width="700" height="54" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="164" y="74" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">setup_grid</text>
+<text x="164" y="95" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">annulus or Yin-Yang grid, radial stretching</text>
+<text x="838" y="95" font-family="Menlo, Consolas, monospace" font-size="12" fill="#555555" text-anchor="end">utils/setup_grid.jl</text>
+<line x1="500" y1="106" x2="500" y2="118" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="120" width="700" height="54" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="164" y="142" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">init_markers</text>
+<text x="164" y="163" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">marker cloud, initial T and composition</text>
+<text x="838" y="163" font-family="Menlo, Consolas, monospace" font-size="12" fill="#555555" text-anchor="end">markers/init_markers.jl</text>
+<line x1="500" y1="174" x2="500" y2="186" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="188" width="700" height="54" rx="8" fill="#eeeeee" stroke="#555555" stroke-width="1.6"/>
+<text x="164" y="210" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">open_diagnostics_csv</text>
+<text x="164" y="231" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">diagnostics.csv (or resume from a checkpoint)</text>
+<text x="838" y="231" font-family="Menlo, Consolas, monospace" font-size="12" fill="#555555" text-anchor="end">utils/diagnostics_csv.jl</text>
+<line x1="500" y1="242" x2="500" y2="280" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="150" y="286" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#222" text-anchor="start">for step in 1:maxSteps  (until maxTimeMyr)</text>
+<rect x="150" y="298" width="700" height="54" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="164" y="320" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">markers_to_grid</text>
+<text x="164" y="341" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">project marker T and composition to cells</text>
+<text x="838" y="341" font-family="Menlo, Consolas, monospace" font-size="12" fill="#c05a14" text-anchor="end">markers/markers_to_grid.jl</text>
+<line x1="500" y1="352" x2="500" y2="364" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="366" width="700" height="54" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="164" y="388" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">composite_rheology · viscoelastoplastic · antisqueeze</text>
+<text x="164" y="409" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">cell viscosity ETA</text>
+<text x="838" y="409" font-family="Menlo, Consolas, monospace" font-size="12" fill="#c05a14" text-anchor="end">physics/</text>
+<line x1="500" y1="420" x2="500" y2="432" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="434" width="700" height="54" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="164" y="456" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">melt_phase · thermochemical_piles! · basalt_evolution!</text>
+<text x="164" y="477" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">phases, piles, melting, eruption and intrusion</text>
+<text x="838" y="477" font-family="Menlo, Consolas, monospace" font-size="12" fill="#c05a14" text-anchor="end">physics/</text>
+<line x1="500" y1="488" x2="500" y2="500" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="502" width="700" height="54" rx="8" fill="#fbe3d2" stroke="#c05a14" stroke-width="1.6"/>
+<text x="164" y="524" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">compute_buoyancy</text>
+<text x="164" y="545" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">density anomaly to body force</text>
+<text x="838" y="545" font-family="Menlo, Consolas, monospace" font-size="12" fill="#c05a14" text-anchor="end">physics/compute_buoyancy.jl</text>
+<line x1="500" y1="556" x2="500" y2="568" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="570" width="700" height="54" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="164" y="592" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">solve_stokes_mumps · solve_stokes_amg · multigrid_stokes</text>
+<text x="164" y="613" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">velocity and pressure; no-net-rotation frame in 2-D</text>
+<text x="838" y="613" font-family="Menlo, Consolas, monospace" font-size="12" fill="#1f66bf" text-anchor="end">solvers/</text>
+<line x1="500" y1="624" x2="500" y2="636" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="638" width="700" height="54" rx="8" fill="#d7e5f5" stroke="#1f66bf" stroke-width="1.6"/>
+<text x="164" y="660" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">free_surface · isostasy</text>
+<text x="164" y="681" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">surface topography (optional)</text>
+<text x="838" y="681" font-family="Menlo, Consolas, monospace" font-size="12" fill="#1f66bf" text-anchor="end">physics/</text>
+<line x1="500" y1="692" x2="500" y2="704" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="706" width="700" height="54" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="164" y="728" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">compute_strain_rate · evolve_grain_size!</text>
+<text x="164" y="749" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">strain-rate invariant, accumulated strain, grain size</text>
+<text x="838" y="749" font-family="Menlo, Consolas, monospace" font-size="12" fill="#2e9a59" text-anchor="end">utils/, physics/</text>
+<line x1="500" y1="760" x2="500" y2="772" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="774" width="700" height="54" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="164" y="796" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">compute_timestep</text>
+<text x="164" y="817" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">CFL time step</text>
+<text x="838" y="817" font-family="Menlo, Consolas, monospace" font-size="12" fill="#2e9a59" text-anchor="end">utils/compute_timestep.jl</text>
+<line x1="500" y1="828" x2="500" y2="840" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="842" width="700" height="54" rx="8" fill="#d9efe0" stroke="#2e9a59" stroke-width="1.6"/>
+<text x="164" y="864" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">advect_markers! · reseed_markers!</text>
+<text x="164" y="885" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">move markers, keep the per-cell count in bounds</text>
+<text x="838" y="885" font-family="Menlo, Consolas, monospace" font-size="12" fill="#2e9a59" text-anchor="end">markers/</text>
+<line x1="500" y1="896" x2="500" y2="908" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="910" width="700" height="54" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="164" y="932" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">diffuse_temperature</text>
+<text x="164" y="953" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">conduction and heating on the grid (advect_temperature_2d if T on grid)</text>
+<text x="838" y="953" font-family="Menlo, Consolas, monospace" font-size="12" fill="#8c4da6" text-anchor="end">solvers/diffuse_temperature.jl</text>
+<line x1="500" y1="964" x2="500" y2="976" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="978" width="700" height="54" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="164" y="1000" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">subgrid_temperature_correction! · interp_grid_to_markers!</text>
+<text x="164" y="1021" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">hand the temperature increment back to markers</text>
+<text x="838" y="1021" font-family="Menlo, Consolas, monospace" font-size="12" fill="#8c4da6" text-anchor="end">markers/</text>
+<line x1="500" y1="1032" x2="500" y2="1044" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="1046" width="700" height="54" rx="8" fill="#eadff2" stroke="#8c4da6" stroke-width="1.6"/>
+<text x="164" y="1068" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">compute_diagnostics · cmb_conductive_flux · cool_core</text>
+<text x="164" y="1089" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">Nu, V_rms, budget, core temperature</text>
+<text x="838" y="1089" font-family="Menlo, Consolas, monospace" font-size="12" fill="#8c4da6" text-anchor="end">utils/, physics/</text>
+<line x1="500" y1="1100" x2="500" y2="1112" stroke="#444" stroke-width="1.6" marker-end="url(#ah)"/>
+<rect x="150" y="1114" width="700" height="54" rx="8" fill="#f2f2f2" stroke="#777777" stroke-width="1.6"/>
+<text x="164" y="1136" font-family="Menlo, Consolas, monospace" font-size="15" fill="#111">write_diagnostics_row! · save_vtu · plot_panels · save_checkpoint</text>
+<text x="164" y="1157" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#333">output at logEvery / vtkEvery / ckptEvery</text>
+<text x="838" y="1157" font-family="Menlo, Consolas, monospace" font-size="12" fill="#777777" text-anchor="end">utils/, visualization/</text>
+<path d="M 150 1141 H 110 V 325 H 148" fill="none" stroke="#444" stroke-width="1.8" marker-end="url(#ah)"/>
+<text x="100" y="733" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#444" text-anchor="middle" transform="rotate(-90 100 733)">next step</text>
+<path d="M 850 597 H 884 V 393 H 852" fill="none" stroke="#1f66bf" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ahb)"/>
+<text x="892" y="487" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1f66bf" text-anchor="start">Picard sweeps</text>
+<text x="892" y="505" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#1f66bf" text-anchor="start">(yield law active:</text>
+<text x="892" y="521" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#1f66bf" text-anchor="start">strain rate → ETA)</text>
+</svg>
